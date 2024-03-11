@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { auth } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from 'react-router-dom';
+import "./SignUp.css"; // Import your custom styles
 
 const SignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const navigate = useNavigate(); // Import useNavigate here
+    const navigate = useNavigate();
 
     const signUp = async (e) => {
         e.preventDefault();
@@ -22,26 +23,28 @@ const SignUp = () => {
     };
 
     return (
-        <div className='sign-in-container'>
-            <form onSubmit={signUp}>
+        <div className='sign-up-container'>
+            <form onSubmit={signUp} className="sign-up-form">
                 <h1>Create An Account</h1>
                 <input
                     type="email"
                     placeholder="Enter Your Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="input-field"
                 ></input>
                 <input
                     type="password"
                     placeholder="Enter Your Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className="input-field"
                 ></input>
-                <button type="submit">Sign Up</button>
+                <button type="submit" className="submit-button">Sign Up</button>
             </form>
 
             {/* Add a link to navigate to the Sign In page */}
-            <p>Already have an account? <Link to="/signin">Sign In</Link></p>
+            <p className="signin-link">Already have an account? <Link to="/signin">Sign In</Link></p>
         </div>
     )
 }
