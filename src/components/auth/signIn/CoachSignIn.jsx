@@ -1,21 +1,21 @@
 import React, { useState } from "react";
-import { auth } from "../../firebase";
+import { auth } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
-import "./SignIn.css"; // Import your custom styles
+import "./CoachSignIn.css" // Import your custom styles
 
-const SignIn = () => {
+const CoachSignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const signIn = (e) => {
+  const CoachsignIn = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential);
         // Redirect to the home page after successful login
-        navigate('/home');
+        navigate('/userHome');
       })
       .catch((error) => {
         console.log(error);
@@ -49,4 +49,4 @@ const SignIn = () => {
   );
 }
 
-export default SignIn;
+export default CoachSignIn;

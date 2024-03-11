@@ -16,7 +16,7 @@ const SignUp = () => {
             console.log(userCredential);
 
             // Redirect to the Sign In page after successful sign-up
-            navigate('/');
+            navigate('/signin');
         } catch (error) {
             console.error('Sign up error:', error.message);
         }
@@ -44,7 +44,7 @@ const SignUp = () => {
             </form>
 
             {/* Add a link to navigate to the Sign In page */}
-            <p className="signin-link">Already have an account? <Link to="/">Sign In</Link></p>
+            <p className="signin-link">Already have an account? <Link to="/signin">Sign In</Link></p>
         </div>
     )
 }
