@@ -1,29 +1,19 @@
-//import css
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-
-//import router
-import {BrowserRouter, Routes, Route} from 'react-router-dom';
-
-// import components
-import Home from './components/home';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import SignIn from './components/auth/SignIn';
+import Home from './components/home';
 import SignUp from './components/auth/SignUp';
-import AuthDetails from './components/AuthDetails';
 
-
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <SignIn />
-      <SignUp />
-      <AuthDetails />
-</div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
