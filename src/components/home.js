@@ -14,7 +14,7 @@ const Home = () => {
       </nav>
       <div className="content">
         {/* Your home page content goes here */}
-        <h1>Welcome to Your Home Page</h1>
+        <h1>Welcome to The Default Home Page</h1>
       </div>
     </div>
   );

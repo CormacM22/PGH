@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { auth } from "../../firebase";
+import { auth } from "../../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from 'react-router-dom';
-import "./SignUp.css"; // Import your custom styles
+import "./CoachSignUp.css"; // Import your custom styles
 
-const SignUp = () => {
+const CoachSignUp = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -25,6 +25,7 @@ const SignUp = () => {
     return (
         <div className='sign-up-container'>
             <form onSubmit={signUp} className="sign-up-form">
+                <h1>Coach</h1>
                 <h1>Create An Account</h1>
                 <input
                     type="email"
@@ -44,9 +45,15 @@ const SignUp = () => {
             </form>
 
             {/* Add a link to navigate to the Sign In page */}
-            <p className="signin-link">Already have an account? <Link to="/signin">Sign In</Link></p>
+            <p className="signin-link">Already have an account? <Link to="/CoachSignin">Sign In</Link></p>
+            <p className="clientsignup-link">Sign up as a Client? <Link to="/ClientSignIn">Sign In</Link></p>
+
+            {/* Add a link to navigate to the Home page */}
+            <p className="home-link">Back to Home? <Link to="/">Home</Link></p>
+
+
         </div>
     )
 }
 
-export default SignUp;
+export default CoachSignUp;

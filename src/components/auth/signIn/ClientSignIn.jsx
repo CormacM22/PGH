@@ -15,7 +15,7 @@ const SignIn = () => {
       .then((userCredential) => {
         console.log(userCredential);
         // Redirect to the home page after successful login
-        navigate('/userHome');
+        navigate('/ClientHome');
       })
       .catch((error) => {
         console.log(error);
@@ -25,6 +25,7 @@ const SignIn = () => {
   return (
     <div className='sign-in-container'>
       <form onSubmit={signIn} className="sign-in-form">
+        <h1>Client</h1>
         <h1>Log In To Your Account</h1>
         <input
           type="email"
@@ -44,7 +45,10 @@ const SignIn = () => {
       </form>
 
       {/* Add a button to navigate to the Sign Up page */}
-      <p className="signup-link">Don't have an account? <Link to="/signup">Sign Up</Link></p>
+      <p className="signup-link">Don't have an account? <Link to="/ClientSignup">Sign Up</Link></p>
+      <p className="coachsignin-link">Sign in as a Coach? <Link to="/CoachSignIn">Sign In</Link></p>
+      {/* Add a link to navigate to the Home page */}
+      <p className="home-link">Back to Home? <Link to="/">Home</Link></p>
     </div>
   );
 }

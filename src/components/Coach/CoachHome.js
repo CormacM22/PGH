@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import { auth } from '../../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from '../../firebase'; // Import your signOut function
-import './ClientHome.css'; // Import your custom styles
+import './CoachHome.css'; // Import your custom styles
 
-const ClientHome = () => {
+const CoachHome = () => {
   const navigate = useNavigate();
+
   const [userFirstName, setUserFirstName] = useState('');
 
   useEffect(() => {
@@ -19,6 +20,11 @@ const ClientHome = () => {
       const email = currentUser.email;
       const firstName = email.substring(0, email.indexOf('@'));
       setUserFirstName(firstName);
+
+      // Capitalize the first letter
+      const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+
+      setUserFirstName(capitalizedFirstName);
     }
   }, []);
 
@@ -41,11 +47,11 @@ const ClientHome = () => {
       </nav>
       <div className="content">
         {/* Your home page content goes here */}
-        <h1>Welcome to The Client Home Page</h1>
+        <h1>Welcome to The Coach Home Page</h1>
         {userFirstName && <p>Hello, {userFirstName}!</p>}
       </div>
     </div>
   );
 };
 
-export default ClientHome;
+export default CoachHome;

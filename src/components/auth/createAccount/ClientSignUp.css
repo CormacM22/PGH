@@ -1,6 +1,6 @@
-/* SignIn.css */
+/* SignUp.css */
 
-.sign-in-container {
+.sign-up-container {
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
@@ -9,7 +9,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
-  .sign-in-form {
+  .sign-up-form {
     display: flex;
     flex-direction: column;
   }
@@ -22,7 +22,7 @@
   }
   
   .submit-button {
-    background-color: #007BFF;
+    background-color: #28a745;
     color: white;
     padding: 10px;
     border: none;
@@ -30,12 +30,12 @@
     cursor: pointer;
   }
   
-  .signup-link {
+  .signin-link {
     margin-top: 20px;
     text-align: center;
   }
 
-  .clientsignin-link {
+  .coachsignup-link {
     margin-top: 20px;
     text-align: center;
   }
