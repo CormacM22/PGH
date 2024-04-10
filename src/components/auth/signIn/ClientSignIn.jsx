@@ -46,7 +46,6 @@ const SignIn = () => {
 
       {/* Add a button to navigate to the Sign Up page */}
       <p className="signup-link">Don't have an account? <Link to="/ClientSignup">Sign Up</Link></p>
-      <p className="coachsignin-link">Sign in as a Coach? <Link to="/CoachSignIn">Sign In</Link></p>
       {/* Add a link to navigate to the Home page */}
       <p className="home-link">Back to Home? <Link to="/">Home</Link></p>
     </div>

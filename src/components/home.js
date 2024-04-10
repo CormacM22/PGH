@@ -1,20 +1,29 @@
-// Home.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './home.css'; 
+import './home.css';
+import Image0 from './images/Image0.jpeg'; // Ensure this path is correct
 
 const Home = () => {
   return (
-    <div>
+    <div className="home-container">
       <nav className="navbar">
-        <Link to="/home" className="logo">Pro Guidance Hub</Link>
+        <Link to="/" className="logo">Pro Guidance Hub</Link>
         <div className="nav-links">
-          <Link to="/SignInOptions" className="nav-link">Sign In</Link>
+          <Link to="/about" className="nav-link">About</Link>
+          <Link to="/clientSignUp" className="nav-link">Sign Up</Link>
+          <Link to="/clientSignIn" className="nav-link">Login</Link>
         </div>
       </nav>
-      <div className="content">
-        {/* Your home page content goes here */}
-        <h1>Welcome to The Default Home Page</h1>
+      <div className="image-container">
+        <img src={Image0} alt="Fitness Tracker" style={{width: "100%", display: "block"}} />
+      </div>
+      <div className="intro-section">
+        <h1>Track, Progress, Achieve</h1>
+        <p>Welcome to Pro Guidance Hub - your ultimate companion on your fitness journey. Our app helps you monitor your workouts, track your progress, and stay motivated towards achieving your health and fitness goals.</p>
+        <p>By creating an account, you'll gain access to personalized workout plans, progress tracking, nutrition guidance, and a supportive community to keep you inspired.</p>
+        <div className="action-buttons">
+          <Link to="/clientsignup" className="cta-button">Get Started</Link>
+        </div>
       </div>
     </div>
   );

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "497652223998",
+    "project_id": "proguidancehub",
+    "storage_bucket": "proguidancehub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:497652223998:android:494b3e16c3c85399787aaf",
+        "android_client_info": {
+          "package_name": "com.cormacmangan.proguidancehub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcQVBgm1VOAFoMgK-nvjHwwf3RsoMfPHk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

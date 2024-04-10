@@ -1,28 +1,24 @@
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 import { getAuth, signOut as firebaseSignOut } from "firebase/auth";
-
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCqruWj4mgSMYQJwy4r-GpTadSTcSsz0ME",
-  authDomain: "proguidancehub-bf3d9.firebaseapp.com",
-  databaseURL: "https://proguidancehub-bf3d9-default-rtdb.firebaseio.com",
-  projectId: "proguidancehub-bf3d9",
-  storageBucket: "proguidancehub-bf3d9.appspot.com",
-  messagingSenderId: "32108389951",
-  appId: "1:32108389951:web:d74d683345c5c9c3937a8a"
+  apiKey: "AIzaSyDO-h29bR0cuEwZ-OPQWurrLAbYJH6jIUc",
+  authDomain: "proguidancehub-e0861.firebaseapp.com",
+  projectId: "proguidancehub-e0861",
+  storageBucket: "proguidancehub-e0861.appspot.com",
+  messagingSenderId: "1024022757204",
+  appId: "1:1024022757204:web:7a0a8370f61674667ad2c1"
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-const auth = getAuth();
+const firebase = initializeApp(firebaseConfig);
+const firestore = getFirestore(firebase);
+const auth = getAuth(firebase);
 
 const signOut = async () => {
   await firebaseSignOut(auth);
 };
 
-export { auth, signOut };
+export { firebase, firestore, auth, signOut };

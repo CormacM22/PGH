@@ -16,7 +16,7 @@ const ClientSignUp = () => {
             console.log(userCredential);
 
             // Redirect to the Sign In page after successful sign-up
-            navigate('/signin');
+            navigate('/clienthome');
         } catch (error) {
             console.error('Sign up error:', error.message);
         }
@@ -25,7 +25,6 @@ const ClientSignUp = () => {
     return (
         <div className='sign-up-container'>
             <form onSubmit={signUp} className="sign-up-form">
-                <h1>Client</h1>
                 <h1>Create An Account</h1>
                 <input
                     type="email"
@@ -46,7 +45,6 @@ const ClientSignUp = () => {
 
             {/* Add a link to navigate to the Sign In page */}
             <p className="signin-link">Already have an account? <Link to="/ClientSignin">Sign In</Link></p>
-            <p className="coachsignup-link">Sign up as a Coach? <Link to="/CoachSignUp">Sign Up</Link></p>
 
             {/* Add a link to navigate to the Home page */}
             <p className="home-link">Back to Home? <Link to="/">Home</Link></p>
