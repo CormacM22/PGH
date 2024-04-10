@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getAuth, signOut as firebaseSignOut } from "firebase/auth";
 
-// Your web app's Firebase configuration
+// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDO-h29bR0cuEwZ-OPQWurrLAbYJH6jIUc",
   authDomain: "proguidancehub-e0861.firebaseapp.com",

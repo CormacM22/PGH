@@ -1,9 +1,8 @@
-// Home.js
 import React, { useEffect, useState } from 'react';
 import { auth } from '../../firebase';
 import { Link, useNavigate } from 'react-router-dom';
-import { signOut } from '../../firebase'; // Import your signOut function
-import './ClientHome.css'; // Import your custom styles
+import { signOut } from '../../firebase'; 
+import './ClientHome.css'; 
 
 const ClientHome = () => {
   const navigate = useNavigate();
@@ -18,7 +17,11 @@ const ClientHome = () => {
       // Extract the first part of the email (before the @ symbol)
       const email = currentUser.email;
       const firstName = email.substring(0, email.indexOf('@'));
-      setUserFirstName(firstName);
+      
+      // Capitalize the first letter of the first name
+      const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+      
+      setUserFirstName(capitalizedFirstName);
     }
   }, []);
 
@@ -40,7 +43,7 @@ const ClientHome = () => {
         </div>
       </nav>
       <div className="content">
-        {/* Your home page content goes here */}
+
         <h1>Welcome to The Client Home Page</h1>
         {userFirstName && <p>Hello, {userFirstName}!</p>}
       </div>

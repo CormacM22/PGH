@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './home.css';
-import Image0 from './images/Image0.jpeg'; // Ensure this path is correct
+import Image0 from './images/Image0.jpeg';
 
 const Home = () => {
   return (
