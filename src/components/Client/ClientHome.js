@@ -9,43 +9,47 @@ const ClientHome = () => {
   const [userFirstName, setUserFirstName] = useState('');
 
   useEffect(() => {
-    // Get the currently authenticated user
     const currentUser = auth.currentUser;
-
-    // Check if a user is authenticated
     if (currentUser) {
-      // Extract the first part of the email (before the @ symbol)
       const email = currentUser.email;
       const firstName = email.substring(0, email.indexOf('@'));
-      
-      // Capitalize the first letter of the first name
       const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
-      
       setUserFirstName(capitalizedFirstName);
+    } else {
+      // If no user is found, navigate to the ClientSignIn page
+      navigate('/ClientSignIn');
     }
-  }, []);
+  }, [navigate]);
 
   const handleSignOut = async () => {
     try {
       await signOut();
-      navigate('/'); // Redirect to the sign-in page after signing out
+      navigate('/ClientSignIn'); 
     } catch (error) {
       console.error('Sign out error:', error.message);
     }
   };
 
   return (
-    <div>
+    <div className="client-home-container">
       <nav className="navbar">
-        <Link to="/home" className="logo">Pro Guidance Hub</Link>
+        <Link to="/clienthome" className="logo">Pro Guidance Hub</Link>
         <div className="nav-links">
-          <button onClick={handleSignOut}>Sign Out</button>
+          <button className="sign-out-button" onClick={handleSignOut}>Sign Out</button>
         </div>
       </nav>
       <div className="content">
-
-        <h1>Welcome to The Client Home Page</h1>
-        {userFirstName && <p>Hello, {userFirstName}!</p>}
+        {userFirstName && (
+          <>
+            <h1>Welcome back, {userFirstName}!</h1>
+            <p>Ready to take the next step in your fitness journey? Explore the resources available to you:</p>
+            <div className="action-buttons">
+              <Link to="/exercise-tutorials" className="action-button">Exercise Tutorials</Link>
+              <Link to="/log-workout" className="action-button">Log Workout</Link>
+              <Link to="/log-calories" className="action-button">Log Calories</Link>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
