@@ -10,8 +10,7 @@ const Home = () => {
         <Link to="/" className="logo">Pro Guidance Hub</Link>
         <div className="nav-links">
           <Link to="/about" className="nav-link">About</Link>
-          <Link to="/clientSignUp" className="nav-link">Sign Up</Link>
-          <Link to="/clientSignIn" className="nav-link">Login</Link>
+          <Link to="/LogInOptions" className="nav-link">Get Started</Link>
         </div>
       </nav>
       <div className="image-container">

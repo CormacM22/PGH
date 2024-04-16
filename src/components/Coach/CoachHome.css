@@ -1,0 +1,46 @@
+.client-home-container {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar {
+    background-color: #0082e6; 
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  
+  .logo, .nav-link, .sign-out-button {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .sign-out-button {
+    background-color: #ff9800; 
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-left: 10px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .content {
+    padding: 40px 10%;
+    text-align: center;
+  }
+  
+  .action-button {
+    background-color: #4caf50; 
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 20px 10px 0; 
+    display: inline-block; 
+  }
+  
+  
+  

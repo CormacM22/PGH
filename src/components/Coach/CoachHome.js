@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { auth } from '../../firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { signOut } from '../../firebase'; 
-import './ClientHome.css'; 
+import './CoachHome.css'; 
 
-const ClientHome = () => {
+const CoachHome = () => {
   const navigate = useNavigate();
   const [userFirstName, setUserFirstName] = useState('');
 
@@ -16,7 +16,7 @@ const ClientHome = () => {
       const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
       setUserFirstName(capitalizedFirstName);
     } else {
-      // If no user is found, navigate to the ClientSignIn page
+      // If no user is found, navigate to the CoachSignIn page
       navigate('/ClientSignIn');
     }
   }, [navigate]);
@@ -44,10 +44,7 @@ const ClientHome = () => {
             <h1>Welcome back, {userFirstName}!</h1>
             <p>Ready to take the next step in your fitness journey? Explore the resources available to you:</p>
             <div className="action-buttons">
-              <Link to="/ExerciseTutorials" className="action-button">Exercise Tutorials</Link>
-              <Link to="/log-workout" className="action-button">Log Workout</Link>
-              <Link to="/log-calories" className="action-button">Log Calories</Link>
-              <Link to="/clientmessaging" className="action-button">Message Coach</Link>
+              <Link to="/coachmessaging" className="action-button">Message Coach</Link>
             </div>
           </>
         )}
@@ -56,4 +53,4 @@ const ClientHome = () => {
   );
 };
 
-export default ClientHome;
+export default CoachHome;

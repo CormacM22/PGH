@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { auth } from "../../../firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate, Link } from "react-router-dom";
-import "./ClientSignIn.css" 
+import "./CoachSignIn.css" 
 
-const ClientSignIn = () => {
+const CoachSignIn = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const ClientSignIn = () => {
       .then((userCredential) => {
         console.log(userCredential);
         // Redirect to the home page after successful login
-        navigate('/ClientHome');
+        navigate('/CoachHome');
       })
       .catch((error) => {
         console.log(error);
@@ -25,7 +25,7 @@ const ClientSignIn = () => {
   return (
     <div className='sign-in-container'>
       <form onSubmit={signIn} className="sign-in-form">
-        <h1>Client</h1>
+        <h1>Coach</h1>
         <h1>Log In To Your Account</h1>
         <input
           type="email"
@@ -45,11 +45,11 @@ const ClientSignIn = () => {
       </form>
 
       {/* Add a button to navigate to the Sign Up page */}
-      <p className="signup-link">Don't have an account? <Link to="/ClientSignup">Sign Up</Link></p>
+      <p className="signup-link">Don't have an account? <Link to="/CoachSignup">Sign Up</Link></p>
       {/* Add a link to navigate to the Home page */}
       <p className="home-link">Back to Home? <Link to="/">Home</Link></p>
     </div>
   );
 }
 
-export default ClientSignIn;
+export default CoachSignIn;

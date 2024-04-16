@@ -1,0 +1,74 @@
+/* General Styles for the Messaging Container */
+.messaging-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Styles for the list of messages */
+.messages-list {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Individual message styling */
+.message {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    border: 1px solid #d0d0d0;
+}
+
+.message.client {
+    background-color: #f8d7da;  /* A light green background for messages from the client */
+    text-align: right;
+}
+
+.message.coach {
+    background-color: #d1e7dd;  /* A light red background for messages from the coach */
+    text-align: left;
+}
+
+.message-content {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Styles for the send message form */
+.send-message-form {
+    display: flex;
+    gap: 10px;
+    padding-top: 10px;
+}
+
+.message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.send-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}
