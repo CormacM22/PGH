@@ -1,0 +1,26 @@
+
+.exercise-tutorials-container {
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .navbar {
+    background-color: #0082e6; 
+    padding: 15px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+  }
+  
+  .logo {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .content {
+    padding: 40px 10%;
+    text-align: center;
+  }
+  
+
+  

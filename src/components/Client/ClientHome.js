@@ -44,7 +44,7 @@ const ClientHome = () => {
             <h1>Welcome back, {userFirstName}!</h1>
             <p>Ready to take the next step in your fitness journey? Explore the resources available to you:</p>
             <div className="action-buttons">
-              <Link to="/exercise-tutorials" className="action-button">Exercise Tutorials</Link>
+              <Link to="/ExerciseTutorials" className="action-button">Exercise Tutorials</Link>
               <Link to="/log-workout" className="action-button">Log Workout</Link>
               <Link to="/log-calories" className="action-button">Log Calories</Link>
             </div>
