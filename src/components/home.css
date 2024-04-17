@@ -1,26 +1,67 @@
 body, html, .home-container {
-  margin: 0;
-  padding: 0;
   font-family: 'Arial', sans-serif;
   background-color: #f4f4f4;
   color: #333;
+  padding: 20px;
 }
 
-.navbar {
-  background-color: #0082e6; 
-  padding: 15px 10%;
+.header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; /* Adjusted to center */
   align-items: center;
-  color: white;
+  padding: 10px 5%;
+  position: relative; /* Ensures that the menu can be positioned absolutely with respect to this container */
 }
 
-.logo, .nav-link {
+.site-title {
+  font-size: 2.5rem; /* Larger font size for the site title */
+  color: #0082e6;
+  margin: 0 auto; /* Automatically margins to center the title */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Perfectly centers the title */
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 99%; /* Positions the menu icon on the far right */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically centers the icon */
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: -1%;
+  top: 25px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-link {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  text-align: center;
+}
+
+.menu-link:hover {
+  background-color: #f0f0f0;
+}
+
+
+.logo, .nav-link, .feature-link {
   text-decoration: none;
   color: white;
 }
 
-.nav-link {
+.nav-link, .feature-link {
   background-color: #ff9800; 
   padding: 10px 15px;
   border-radius: 4px;
@@ -28,12 +69,17 @@ body, html, .home-container {
   font-weight: bold;
 }
 
-.intro-section {
+.feature-link {
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.intro-section, .feature-description {
   padding: 40px 10%;
   text-align: center; 
 }
 
-.cta-button {
+.cta-button, .feature-description h2 {
   background-color: #4caf50;
   color: white;
   padding: 10px 20px;
@@ -41,29 +87,57 @@ body, html, .home-container {
   text-decoration: none;
   font-weight: bold;
   margin-top: 20px;
+  display: inline-block;
 }
 
-.action-buttons {
-  margin-top: 20px; 
+.feature-description {
+  margin-top: 20px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.feature-item {
+  cursor: pointer;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-.image-container {
-  max-width: 1000px;
+.feature-item:hover {
+  transform: scale(1.03);
+}
+
+.active {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.fade {
+  opacity: 0.3;
+}
+
+.home-container, .intro-section {
   position: relative;
-  margin: 40px auto;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); 
-  border-radius: 8px; 
-  overflow: hidden; 
+  overflow: hidden;
 }
 
-.image-container img {
-  width: 100%;
-  display: block; 
-  transition: transform 0.6s ease-in-out; 
+.feature-list {
+  padding: 0 10%;
 }
 
-.image-container:hover img {
-  transform: scale(1.05);
+.feature-item h2, .feature-item p {
+  margin: 10px 0;
 }
+
+.feature-item i {
+  font-size: 2rem; /* Larger icons */
+  display: block; /* Ensures icons are on their own line */
+}
+
+
 
