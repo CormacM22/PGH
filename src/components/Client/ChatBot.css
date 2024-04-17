@@ -1,0 +1,72 @@
+/* Base styling for the chat container */
+.chat-container {
+    max-width: 500px;
+    margin: auto;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #ffffff, #e6f9f7); /* Light gradient# */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+}
+
+/* Styling for the message form at the bottom */
+.message-form {
+    display: flex;
+    margin-top: 20px;
+}
+
+.message-input {
+    flex-grow: 1;
+    border-radius: 5px;
+    border: 2px solid #5cb85c; /* Green border to imply fitness */
+    padding: 10px;
+    margin-right: 10px;
+}
+
+.send-button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5cb85c; /* Energetic green color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.send-button:hover {
+    background-color: #4cae4c;
+}
+
+/* Styling for the conversation list */
+.messages-container {
+    height: 300px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column-reverse; /* Newest messages at the bottom */
+}
+
+.message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Specific styles for user and bot messages */
+.user-message {
+    align-self: flex-end;
+    background-color: #dcf8c6; /* Light green background for user messages */
+}
+
+.bot-message {
+    align-self: flex-start;
+    background-color: #f3f3f3; /* Subtle gray for bot messages, easy on the eyes */
+}
+
+/* Additional styling for bot messages to include icons */
+.bot-message:before {
+    content: '🏋️'; /* Fitness emoji as a prefix */
+    padding-right: 8px;
+}

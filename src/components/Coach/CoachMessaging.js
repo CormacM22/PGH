@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { collection, query, orderBy, onSnapshot, addDoc } from 'firebase/firestore';
-import { firestore } from '../../firebase';
+import { collection, addDoc, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { firestore } from '../../firebase'; // Ensure this path is correct based on your project structure
 
 const CoachMessaging = () => {
     const [message, setMessage] = useState('');
@@ -11,12 +11,12 @@ const CoachMessaging = () => {
         const unsubscribe = onSnapshot(q, (querySnapshot) => {
             const loadedMessages = [];
             querySnapshot.forEach((doc) => {
-                loadedMessages.push({ id: doc.id, ...doc.data() });
+                loadedMessages.push(doc.data());
             });
             setMessages(loadedMessages);
         });
 
-        return () => unsubscribe();
+        return () => unsubscribe(); // Clean up on unmount
     }, []);
 
     const sendMessage = async (e) => {
@@ -26,10 +26,10 @@ const CoachMessaging = () => {
         try {
             await addDoc(collection(firestore, "messages"), {
                 text: message,
-                sender: "coach", // Assuming you are distinguishing messages by sender role
+                sender: "client", // this could also dynamically change depending on the user type
                 timestamp: new Date()
             });
-            setMessage('');
+            setMessage(''); // Clear message input after sending
         } catch (error) {
             console.error("Error sending message:", error);
         }
@@ -38,8 +38,8 @@ const CoachMessaging = () => {
     return (
         <div className="messaging-container">
             <div className="messages-list">
-                {messages.map((msg) => (
-                    <div key={msg.id} className={`message ${msg.sender}`}>
+                {messages.map((msg, index) => (
+                    <div key={index} className={`message ${msg.sender}`}>
                         <span className="message-content">{msg.text}</span>
                     </div>
                 ))}

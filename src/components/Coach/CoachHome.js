@@ -44,7 +44,7 @@ const CoachHome = () => {
             <h1>Welcome back, {userFirstName}!</h1>
             <p>Ready to take the next step in your fitness journey? Explore the resources available to you:</p>
             <div className="action-buttons">
-              <Link to="/coachmessaging" className="action-button">Message Coach</Link>
+              <Link to="/coachmessaging" className="action-button">Message Client</Link>
             </div>
           </>
         )}

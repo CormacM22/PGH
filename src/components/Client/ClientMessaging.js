@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { collection, addDoc, query, orderBy, onSnapshot } from 'firebase/firestore';
-import { firestore } from '../../firebase';// Ensure this path is correct based on your project structure
-import './ClientMessaging.css'; 
+import { firestore } from '../../firebase'; // Ensure this path is correct based on your project structure
+import './ClientMessaging.css';
 
 const ClientMessaging = () => {
     const [message, setMessage] = useState('');

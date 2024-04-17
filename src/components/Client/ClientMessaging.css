@@ -30,12 +30,12 @@
 }
 
 .message.client {
-    background-color: #f8d7da;  /* A light green background for messages from the client */
+    background-color: #d1e7dd;  /* A light green background for messages from the client */
     text-align: right;
 }
 
 .message.coach {
-    background-color: #d1e7dd;  /* A light red background for messages from the coach */
+    background-color: #f8d7da;  /* A light red background for messages from the coach */
     text-align: left;
 }
 
