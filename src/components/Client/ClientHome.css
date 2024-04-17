@@ -39,7 +39,26 @@
   text-decoration: none;
   font-weight: bold;
   margin: 20px 10px 0; 
-  display: inline-block; 
+  display: inline-block;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adds depth with shadow */
 }
 
+/* Adding specific icons before each action button for better visual cues */
+.action-button:before {
+  padding-right: 8px;
+  font-family: "Font Awesome 5 Free"; /* Using Font Awesome for icons */
+  font-weight: 900; /* Necessary for solid icons */
+}
 
+/* Custom icons for each action */
+[href$="/ExerciseTutorials"]:before { content: '\f44b'; } /* dumbbell icon */
+[href$="/log-workout"]:before { content: '\f70c'; } /* running icon */
+[href$="/log-calories"]:before { content: '\f0f4'; } /* utensils icon */
+[href$="/clientmessaging"]:before { content: '\f086'; } /* comments icon */
+[href$="/chatbot"]:before { content: '\f086'; } /* robot icon */
+
+/* Hover effect for buttons to improve interactivity */
+.action-button:hover {
+  background-color: #43a047;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
