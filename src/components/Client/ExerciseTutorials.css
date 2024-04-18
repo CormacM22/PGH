@@ -1,26 +1,49 @@
-
 .exercise-tutorials-container {
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .navbar {
-    background-color: #0082e6; 
-    padding: 15px 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-  }
-  
-  .logo {
-    text-decoration: none;
-    color: white;
-  }
-  
-  .content {
-    padding: 40px 10%;
-    text-align: center;
-  }
-  
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
+}
 
-  
+.navbar {
+  display: flex;
+  justify-content: center; /* Center aligns the logo */
+  align-items: center;
+  padding: 10px 5%;
+  background-color: #0082e6;
+  position: relative; /* Relative positioning for absolute children */
+  color: white;
+}
+
+.logo {
+  text-decoration: none;
+  color: white;
+  font-size: 2.5rem; /* Large size for visibility */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); /* Center the logo */
+}
+
+.content {
+  padding: 40px 10%;
+  text-align: center;
+  background-color: #fff; /* Different background to distinguish area */
+  border-radius: 8px; /* Optional: Adds rounded corners for softer look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Ensure that the layout adjusts properly on smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px 5%;
+  }
+
+  .logo {
+    position: relative; /* Reset position on small screens */
+    left: 0;
+    transform: none;
+    text-align: center;
+    margin-bottom: 10px; /* Provide spacing if other elements are present */
+  }
+}

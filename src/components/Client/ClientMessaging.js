@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { collection, addDoc, query, orderBy, onSnapshot } from 'firebase/firestore';
+import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import { firestore } from '../../firebase'; // Ensure this path is correct based on your project structure
+import { getAuth } from 'firebase/auth'; // Import auth module
 import './ClientMessaging.css';
 
 const ClientMessaging = () => {
     const [message, setMessage] = useState('');
     const [messages, setMessages] = useState([]);
+    const auth = getAuth(); // Initialize auth
 
     useEffect(() => {
         const q = query(collection(firestore, "messages"), orderBy("timestamp"));
@@ -22,13 +24,13 @@ const ClientMessaging = () => {
 
     const sendMessage = async (e) => {
         e.preventDefault();
-        if (!message) return;
+        if (!message || !auth.currentUser) return; // Check if message is empty or if no user is logged in
 
         try {
             await addDoc(collection(firestore, "messages"), {
                 text: message,
-                sender: "client", // this could also dynamically change depending on the user type
-                timestamp: new Date()
+                senderId: auth.currentUser.uid, // Use the UID of the logged-in user
+                timestamp: serverTimestamp() // Use server timestamp for consistency
             });
             setMessage(''); // Clear message input after sending
         } catch (error) {
@@ -40,7 +42,7 @@ const ClientMessaging = () => {
         <div className="messaging-container">
             <div className="messages-list">
                 {messages.map((msg, index) => (
-                    <div key={index} className={`message ${msg.sender}`}>
+                    <div key={index} className={`message ${msg.senderId === auth.currentUser?.uid ? 'sender' : 'recipient'}`}>
                         <span className="message-content">{msg.text}</span>
                     </div>
                 ))}

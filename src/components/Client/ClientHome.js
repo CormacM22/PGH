@@ -46,7 +46,7 @@ const ClientHome = () => {
             <div className="action-buttons">
               <Link to="/ExerciseTutorials" className="action-button">Exercise Tutorials</Link>
               <Link to="/log-workout" className="action-button">Log Workout</Link>
-              <Link to="/log-calories" className="action-button">Log Calories</Link>
+              <Link to="/logcalories" className="action-button">Log Calories</Link>
               <Link to="/clientmessaging" className="action-button">Message Coach</Link>
               <Link to="/chatbot" className="action-button">Chat Bot</Link>
             </div>
