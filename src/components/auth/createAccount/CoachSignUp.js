@@ -2,40 +2,44 @@ import React, { useState } from "react";
 import { Link, useNavigate } from 'react-router-dom';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { getFirestore, collection, addDoc } from "firebase/firestore";
-import "./CoachSignUp.css"; 
+import "./CoachSignUp.css";
 
+// Functional component for Coach Sign-Up
 const CoachSignUp = () => {
+    // State for managing email and password inputs
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    // Hook for navigating programmatically
     const navigate = useNavigate();
 
+    // Firebase authentication and Firestore database instances
     const auth = getAuth();
-
     const db = getFirestore();
 
+    // Handle form submission for sign-up
     const signUp = async (e) => {
         e.preventDefault();
-        const auth = getAuth();
         try {
+            // Register user with email and password
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             console.log("User registered:", userCredential.user);
 
-            // Queue email for sending
+            // Function call to send a welcome email
             await addEmailToSend(email);
 
-            // Redirect to the client home page after successful sign-up
+            // Navigate to the coach home page upon successful sign-up
             navigate('/coachhome');
         } catch (error) {
             console.error('Sign up error:', error.message);
         }
     };
 
-    // Function to queue email for sending
+    // Function to add email to Firestore for sending a welcome message
     const addEmailToSend = async (recipientEmail) => {
-        const emailsCollection = collection(db, 'mail'); // 'mail' is the default collection name used by the extension
+        const emailsCollection = collection(db, 'mail');
         try {
             await addDoc(emailsCollection, {
-                to: recipientEmail, // recipient's email address
+                to: recipientEmail,
                 message: {
                     subject: 'Welcome to Pro Guidance Hub!',
                     html: '<p>Welcome to our platform! We are excited to have you on board.</p>',
@@ -47,6 +51,7 @@ const CoachSignUp = () => {
         }
     };
 
+    // Component rendering the sign-up form
     return (
         <div className='sign-up-container'>
             <form onSubmit={signUp} className="sign-up-form">
@@ -71,7 +76,7 @@ const CoachSignUp = () => {
             </form>
 
             <p className="signin-link">Already have an account? <Link to="/CoachSignin">Sign In</Link></p>
-            <p className="home-link">Back to Home? <Link to="/">Home</Link></p>
+            <p className="home-link">Back to Home? <Link to="/home">Home</Link></p>
         </div>
     );
 };

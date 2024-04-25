@@ -1,66 +1,85 @@
 import React, { useState, useEffect } from 'react';
-import { addDoc, collection, onSnapshot, query, orderBy, serverTimestamp} from 'firebase/firestore';
+import { Link } from 'react-router-dom';
+import { addDoc, collection, onSnapshot, query, orderBy, serverTimestamp } from 'firebase/firestore';
 import { firestore } from '../../firebase';
 import './ChatBot.css';
 
 const ChatBot = () => {
+  // State to store the current message input by the user
   const [message, setMessage] = useState('');
-  const [conversations, setConversations] = useState([]);  // To store ongoing conversations
+  // State to store conversation history
+  const [conversations, setConversations] = useState([]);
 
+  // useEffect to subscribe to the Firestore collection on component mount
   useEffect(() => {
-    // Listen for updates in real-time
+    // Query to get discussions ordered by createTime descending
     const q = query(collection(firestore, "discussions"), orderBy("createTime", "desc"));
+    // Subscribe to the Firestore collection
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      // Mapping documents to state upon snapshot update
       const updatedConversations = querySnapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
       }));
-      setConversations(updatedConversations); // Update local state
+      setConversations(updatedConversations);
     });
 
-    return () => unsubscribe(); // Detach listener when the component unmounts
+    // Cleanup function to unsubscribe from Firestore on component unmount
+    return () => unsubscribe();
   }, []);
 
+  // Handle form submission for sending a message
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!message.trim()) return;
+    e.preventDefault();  // Prevent default form behavior
+    if (!message.trim()) return; // Ignore empty message submissions
 
-    // Create a new message object as before
+    // Message object to be sent to Firestore
     const newMessage = {
       prompt: message,
-      response: "",  // Response will be added by the chatbot
-      createTime: serverTimestamp(),
-      status: "PENDING",
+      response: "",
+      createTime: serverTimestamp(), // Set server-side timestamp for consistency
+      status: "PENDING", // Initial status of the message
     };
 
+    // Attempt to send the message to Firestore
     try {
       await addDoc(collection(firestore, "discussions"), newMessage);
-      setMessage('');  // Clear the message input after sending
+      setMessage(''); // Clear message input on successful send
     } catch (error) {
       console.error("Error sending message:", error);
     }
   };
 
   return (
-    <div className="chat-container">
-      <div className="messages-container">
-        {conversations.map(convo => (
-          <div key={convo.id} className={`message ${convo.response ? 'bot-message' : 'user-message'}`}>
-            <p>{convo.prompt}</p>
-            {convo.response && <p>{convo.response}</p>}
-          </div>
-        ))}
+    <div className="home-container">
+      <div className="header">
+        <div className="header-left"></div> // Placeholder for future content
+        <h1 className="site-title">Pro Guidance Hub</h1> // Site title in header
+        <div className="header-right">
+          <Link to="/clienthome" className="menu-link">Home</Link> // Navigation link to Home
+        </div>
       </div>
-      <form onSubmit={handleSubmit} className="message-form">
-        <input
-          type="text"
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message here..."
-          className="message-input"
-        />
-        <button type="submit" className="send-button">Send</button>
-      </form>
+      <div className="chat-container">
+        <div className="messages-container">
+          {/* Loop through conversations to display each message */}
+          {conversations.map(convo => (
+            <div key={convo.id} className={`message ${convo.response ? 'bot-message' : 'user-message'}`}>
+              <p>{convo.prompt}</p>
+              {convo.response && <p>{convo.response}</p>} // Show response if available
+            </div>
+          ))}
+        </div>
+        <form onSubmit={handleSubmit} className="message-form">
+          <input
+            type="text"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            placeholder="Type your message here..."
+            className="message-input"
+          />
+          <button type="submit" className="send-button">Send</button> // Send button for the form
+        </form>
+      </div>
     </div>
   );
 };

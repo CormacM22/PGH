@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './home.css';
+import { Link } from 'react-router-dom'; // Import for navigation links
+import './home.css'; 
 
 const Home = () => {
+  // State to manage which feature is currently active (hovered over)
   const [activeFeature, setActiveFeature] = useState('');
-  const [menuOpen, setMenuOpen] = useState(false);
 
+  // Object containing details about features offered
   const features = {
     'exercise-tutorials': {
       title: 'Exercise Tutorials',
       description: 'Access a variety of instructional videos and guidelines to perfect your technique and enhance your fitness regimen.',
-      icon: 'fas fa-dumbbell fa-3x'
+      icon: 'fas fa-dumbbell fa-3x' // Font Awesome icon class for visuals
     },
     'log-workout': {
       title: 'Log Workout',
@@ -34,36 +35,31 @@ const Home = () => {
     }
   };
 
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
-
   return (
     <div className="home-container">
       <div className="header">
-        <h1 className="site-title">Pro Guidance Hub</h1>
-        <div className="menu-icon" onClick={toggleMenu}>
-          <i className="fas fa-bars"></i> 
+        <div className="header-left"> 
         </div>
-        {menuOpen && (
-          <div className="dropdown-menu">
-            <Link to="/LogInOptions" className="menu-link">Get Started</Link>
-            <Link to="/About" className="menu-link">About</Link>
-            
-          </div>
-        )}
+        <h1 className="site-title">Pro Guidance Hub</h1> {/* Main title of the site */}
+        <div className="header-right">
+          <Link to="/LogInOptions" className="menu-link">Log In</Link> {/* Navigation link to Log In page */}
+          <Link to="/RegisterOptions" className="menu-link">Register</Link> {/* Navigation link to Register page */}
+        </div>
       </div>
 
       <div className="intro-section">
-        <h1>Track, Progress, Achieve</h1>
-        <p>Welcome to Pro Guidance Hub - your ultimate companion on your fitness journey.</p>
+        <h1>Track, Progress, Achieve</h1> 
+        <p>Welcome to Pro Guidance Hub - your ultimate companion on your fitness journey.</p> {/* Introductory text */}
         <div className="feature-list">
-          {Object.keys(features).map((feature) => (
-            <div className={`feature-item ${activeFeature === feature ? 'active' : ''} ${activeFeature && activeFeature !== feature ? 'fade' : ''}`}
-                 onClick={() => setActiveFeature(feature === activeFeature ? '' : feature)}>
-              <h2>{features[feature].title}</h2>
-              <p>{features[feature].description}</p>
-              <i className={features[feature].icon}></i>
+          {Object.keys(features).map((feature) => ( // Iterate over each feature in the features object
+            <div 
+              className={`feature-item ${activeFeature === feature ? 'active' : ''} ${activeFeature && activeFeature !== feature ? 'fade' : ''}`}
+              onMouseEnter={() => setActiveFeature(feature)} // Set active feature on mouse enter
+              onMouseLeave={() => setActiveFeature('')} // Remove active feature on mouse leave
+            >
+              <h2>{features[feature].title}</h2> {/* Display the title of the feature */}
+              <p>{features[feature].description}</p> {/* Display the description of the feature */}
+              <i className={features[feature].icon}></i> {/* Display an icon associated with the feature */}
             </div>
           ))}
         </div>
@@ -72,4 +68,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Home; // Export the component for use in other parts of the application

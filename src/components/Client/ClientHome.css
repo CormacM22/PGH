@@ -1,29 +1,43 @@
-.client-home-container {
+.home-container {
   font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  padding: 20px;
 }
 
-.navbar {
-  background-color: #0082e6; 
-  padding: 15px 10%;
+.header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: white;
+  padding: 10px 5%;
 }
 
-.logo, .nav-link, .sign-out-button {
-  text-decoration: none;
-  color: white;
+.site-title {
+  font-size: 2.5rem;
+  color: #0082e6;
+  text-align: center;
 }
 
-.sign-out-button {
+.header-links {
+  display: flex;
+  align-items: center;
+}
+
+.menu-link, .sign-out-button {
+  padding: 15px 25px; 
   background-color: #ff9800; 
-  padding: 10px 15px;
-  border-radius: 4px;
-  margin-left: 10px;
+  color: white; 
+  font-size: 1.2rem; 
+  border-radius: 5px; 
+  text-decoration: none;
   font-weight: bold;
-  border: none;
-  cursor: pointer;
+  margin-left: 10px; 
+  display: inline-block; 
+}
+
+.menu-link:hover, .sign-out-button:hover {
+  background-color: #e67e00; 
+  transform: scale(1.05);
 }
 
 .content {
@@ -31,34 +45,23 @@
   text-align: center;
 }
 
+.intro-section {
+  margin-top: 20px;
+}
+
 .action-button {
-  background-color: #4caf50; 
+  background-color: #4caf50;
   color: white;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
-  margin: 20px 10px 0; 
+  margin: 20px 10px;
   display: inline-block;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2); /* Adds depth with shadow */
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Adding specific icons before each action button for better visual cues */
-.action-button:before {
-  padding-right: 8px;
-  font-family: "Font Awesome 5 Free"; /* Using Font Awesome for icons */
-  font-weight: 900; /* Necessary for solid icons */
-}
-
-/* Custom icons for each action */
-[href$="/ExerciseTutorials"]:before { content: '\f44b'; } /* dumbbell icon */
-[href$="/log-workout"]:before { content: '\f70c'; } /* running icon */
-[href$="/log-calories"]:before { content: '\f0f4'; } /* utensils icon */
-[href$="/clientmessaging"]:before { content: '\f086'; } /* comments icon */
-[href$="/chatbot"]:before { content: '\f086'; } /* robot icon */
-
-/* Hover effect for buttons to improve interactivity */
 .action-button:hover {
-  background-color: #43a047;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  background-color: #369f47;
+  transform: scale(1.05);
 }

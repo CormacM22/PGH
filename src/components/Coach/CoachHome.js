@@ -1,50 +1,53 @@
 import React, { useEffect, useState } from 'react';
-import { auth } from '../../firebase';
-import { Link, useNavigate } from 'react-router-dom';
-import { signOut } from '../../firebase'; 
+import { auth } from '../../firebase'; // Import Firebase authentication services
+import { Link, useNavigate } from 'react-router-dom'; // Import routing capabilities
+import { signOut } from '../../firebase'; // Import signOut function from Firebase
 import './CoachHome.css'; 
 
 const CoachHome = () => {
-  const navigate = useNavigate();
-  const [userFirstName, setUserFirstName] = useState('');
+  const navigate = useNavigate(); // Hook to programmatically navigate between routes
+  const [userFirstName, setUserFirstName] = useState(''); // State for storing user's first name
 
   useEffect(() => {
-    const currentUser = auth.currentUser;
+    const currentUser = auth.currentUser; // Get the currently authenticated user
     if (currentUser) {
-      const email = currentUser.email;
-      const firstName = email.substring(0, email.indexOf('@'));
-      const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
-      setUserFirstName(capitalizedFirstName);
+      // If a user is logged in
+      const email = currentUser.email; // Extract email from user details
+      const firstName = email.substring(0, email.indexOf('@')); // Parse the first name from the email
+      const capitalizedFirstName = firstName.charAt(0).toUpperCase() + firstName.slice(1); // Capitalize the first name
+      setUserFirstName(capitalizedFirstName); // Set the user's first name in the state
     } else {
-      // If no user is found, navigate to the CoachSignIn page
+      // If no user is logged in, navigate to the CoachSignIn page
       navigate('/ClientSignIn');
     }
-  }, [navigate]);
+  }, [navigate]); // Depend on navigate for effect re-calculation if it changes
 
   const handleSignOut = async () => {
+    // Function to handle user sign out
     try {
-      await signOut();
-      navigate('/ClientSignIn'); 
+      await signOut(); // Use Firebase signOut method to log out
+      navigate('/ClientSignIn'); // Redirect to the sign-in page after sign out
     } catch (error) {
-      console.error('Sign out error:', error.message);
+      console.error('Sign out error:', error.message); // Log any errors during sign out
     }
   };
 
   return (
     <div className="client-home-container">
-      <nav className="navbar">
-        <Link to="/clienthome" className="logo">Pro Guidance Hub</Link>
-        <div className="nav-links">
-          <button className="sign-out-button" onClick={handleSignOut}>Sign Out</button>
+      <div className="navbar" style={{ background: 'none', boxShadow: 'none', display: 'flex', justifyContent: 'space-between' }}>
+        <div className="header-left"></div> 
+        <h1 className="site-title">Pro Guidance Hub</h1> 
+        <div className="header-right">
+          <Link to="/home" className="menu-link">Sign Out</Link> 
         </div>
-      </nav>
+      </div>
       <div className="content">
-        {userFirstName && (
+        {userFirstName && ( // Conditional rendering based on the availability of userFirstName
           <>
-            <h1>Welcome back, {userFirstName}!</h1>
-            <p>Ready to take the next step in your fitness journey? Explore the resources available to you:</p>
+            <h1>Welcome back Coach, {userFirstName}!</h1> 
+            <p>Check in on your client!</p>
             <div className="action-buttons">
-              <Link to="/coachmessaging" className="action-button">Message Client</Link>
+              <Link to="/coachmessaging" className="action-button">Message Client</Link> 
             </div>
           </>
         )}
@@ -53,4 +56,4 @@ const CoachHome = () => {
   );
 };
 
-export default CoachHome;
+export default CoachHome; 

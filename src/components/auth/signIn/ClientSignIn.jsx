@@ -45,10 +45,9 @@ const ClientSignIn = () => {
         <button type="submit" className="submit-button">Log In</button>
       </form>
 
-      {/* Add a button to navigate to the Sign Up page */}
       <p className="signup-link">Don't have an account? <Link to="/ClientSignup">Sign Up</Link></p>
-      {/* Add a link to navigate to the Home page */}
-      <p className="home-link">Back to Home? <Link to="/">Home</Link></p>
+ 
+      <p className="home-link">Back to Home? <Link to="/home">Home</Link></p>
     </div>
   );
 }

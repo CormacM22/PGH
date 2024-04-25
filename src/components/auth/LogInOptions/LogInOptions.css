@@ -1,24 +1,61 @@
+/* General styles for header shared across pages */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 5%;
+}
+
+.site-title {
+  font-size: 2.5rem;
+  color: #0082e6;
+}
+
+.header-right .menu-link {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: transparent;
+  border-radius: 5px;
+}
+
+.header-right .menu-link:hover {
+  background-color: #f0f0f0;
+}
+
+/* Specific styles for LogInOptions */
 .choose-role-container {
-    text-align: center;
-    margin-top: 50px;
-  }
-  
-  .role-buttons {
-    margin-top: 20px;
-  }
-  
-  .btn {
-    margin: 10px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
+  text-align: center;
+  margin-top: 20px;
+}
+
+.role-buttons {
+  margin-top: 20px;
+}
+
+.btn {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4caf50; /* Consistent with CTA buttons */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #45a049; /* Darker shade for hover */
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+.home-btn {
+  background-color: #007bff; /* Different color for home button */
+  margin-top: 20px;
+}
+
+.home-btn:hover {
+  background-color: #0056b3;
+}

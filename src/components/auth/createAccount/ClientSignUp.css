@@ -1,47 +1,53 @@
 /* SignUp.css */
 
+/* Container for the sign-up form, centers it, and adds background styling */
 .sign-up-container {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f7f7f7;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .sign-up-form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .input-field {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
-  .submit-button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .signin-link {
-    margin-top: 20px;
-    text-align: center;
-  }
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-  .coachsignup-link {
-    margin-top: 20px;
-    text-align: center;
-  }
+/* Style for the sign-up form, sets the layout to vertical */
+.sign-up-form {
+  display: flex;
+  flex-direction: column;
+}
 
-  .home-link {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
+/* Style for input fields within the form, adds margins, padding, and border styling */
+.input-field {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Style for the submit button, adds background color, text color, and other button styles */
+.submit-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Link for signing in, positioned at the bottom and centered */
+.signin-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Link for coach sign up, positioned similarly to the sign-in link */
+.coachsignup-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Link to return to the home page, positioned similarly to the other links */
+.home-link {
+  margin-top: 20px;
+  text-align: center;
+}

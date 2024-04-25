@@ -12,14 +12,14 @@ import CoachSignUp from './components/auth/createAccount/CoachSignUp';
 import LogInOptions from './components/auth/LogInOptions/LogInOptions';
 import CoachHome from './components/Coach/CoachHome';
 import ChatBot from './components/Client/ChatBot';
-import LogCalories from './components/Client/LogCalories';
+import RegisterOptions from './components/auth/LogInOptions/RegisterOptions';
 
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/ClientSignin" element={<ClientSignIn />} />
         <Route path="/ClientSignup" element={<ClientSignUp />} />
         <Route path="/ClientHome" element={<ClientHome />} />
@@ -31,7 +31,7 @@ const App = () => {
         <Route path="/LogInOptions" element={<LogInOptions />} />
         <Route path="/CoachHome" element={<CoachHome />} />
         <Route path="/ChatBot" element={<ChatBot />} />
-        <Route path="/LogCalories" element={<LogCalories />} />
+        <Route path="/RegisterOptions" element={<RegisterOptions />} />
       </Routes>
     </Router>
   );

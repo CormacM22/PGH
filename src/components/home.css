@@ -7,66 +7,57 @@ body, html, .home-container {
 
 .header {
   display: flex;
-  justify-content: space-between; /* Adjusted to center */
+  justify-content: space-between;
   align-items: center;
   padding: 10px 5%;
-  position: relative; /* Ensures that the menu can be positioned absolutely with respect to this container */
+}
+
+.header-left,
+.header-right {
+  flex: 1;
 }
 
 .site-title {
-  font-size: 2.5rem; /* Larger font size for the site title */
+  flex: 0 1 auto;
+  font-size: 2.5rem;
   color: #0082e6;
-  margin: 0 auto; /* Automatically margins to center the title */
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%); /* Perfectly centers the title */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
 }
 
-.menu-icon {
-  font-size: 1.5rem;
-  cursor: pointer;
-  position: absolute;
-  right: 99%; /* Positions the menu icon on the far right */
-  top: 50%;
-  transform: translateY(-50%); /* Vertically centers the icon */
+.header-links {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Keeps links on the right */
 }
 
-.dropdown-menu {
-  position: absolute;
-  left: -1%;
-  top: 25px;
-  background: white;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000;
+.menu-link:first-child {
+  margin-left: 80px; /* Moves the first link to the right */
 }
 
 .menu-link {
-  display: block;
-  padding: 10px 20px;
+  padding: 15px 25px; /* Updated padding for a larger appearance */
   text-decoration: none;
   color: #333;
+  font-size: 1.2rem; /* Updated font size */
   text-align: center;
+  margin-left: 10px;
 }
 
 .menu-link:hover {
   background-color: #f0f0f0;
 }
 
-
-.logo, .nav-link, .feature-link {
-  text-decoration: none;
-  color: white;
-}
-
 .nav-link, .feature-link {
-  background-color: #ff9800; 
+  background-color: #ff9800;
   padding: 10px 15px;
   border-radius: 4px;
   margin-left: 10px;
   font-weight: bold;
+  color: white;
+  text-decoration: none;
 }
 
 .feature-link {
@@ -76,7 +67,7 @@ body, html, .home-container {
 
 .intro-section, .feature-description {
   padding: 40px 10%;
-  text-align: center; 
+  text-align: center;
 }
 
 .cta-button, .feature-description h2 {
@@ -135,9 +126,6 @@ body, html, .home-container {
 }
 
 .feature-item i {
-  font-size: 2rem; /* Larger icons */
-  display: block; /* Ensures icons are on their own line */
+  font-size: 2rem;
+  display: block;
 }
-
-
-

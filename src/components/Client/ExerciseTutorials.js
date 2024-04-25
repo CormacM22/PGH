@@ -7,9 +7,12 @@ const ExerciseTutorials = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [selectedExercise, setSelectedExercise] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (searchQuery.trim()) {
+      setLoading(true);
       const fetchData = async () => {
         try {
           const response = await axios.get('https://gym-fit.p.rapidapi.com/exercises/search', {
@@ -24,7 +27,6 @@ const ExerciseTutorials = () => {
           console.error('Error fetching exercise tutorials:', error);
         }
       };
-      
       fetchData();
     } else {
       setSearchResults([]);
@@ -49,19 +51,20 @@ const ExerciseTutorials = () => {
     try {
       const response = await axios.request(options);
       setSelectedExercise(response.data);
+      setError('');
     } catch (error) {
-      console.error('Error fetching exercise details:', error);
+      setError('Failed to fetch exercise details. Please try again.');
+      setSelectedExercise(null);
+    } finally {
+      setLoading(false);
     }
   };
 
-  // Render a list of strings
-  const renderStringList = (list) => (
-    <ul>{list.map((item, index) => <li key={index}>{item}</li>)}</ul>
-  );
-
   // Render a list of objects with id and name properties
   const renderObjectList = (list) => (
-    <ul>{list.map((item, index) => <li key={item.id || index}>{item.name}</li>)}</ul>
+    <ul>
+      {list.map((item, index) => <li key={item.id || index}>{item.name}</li>)}
+    </ul>
   );
 
   // Render instructions which are objects with description and order
@@ -75,24 +78,30 @@ const ExerciseTutorials = () => {
 
   return (
     <div className="exercise-tutorials-container">
-      <nav className="navbar">
-        <Link to="/clienthome" className="logo">Pro Guidance Hub</Link>
-      </nav>
+      <div className="navbar" style={{ background: 'none', boxShadow: 'none', display: 'flex', justifyContent: 'space-between' }}>
+        <div className="header-left"></div>
+        <h1 className="site-title">Pro Guidance Hub</h1>
+        <div className="header-right">
+          <Link to="/clienthome" className="menu-link">Home</Link>
+        </div>
+      </div>
       <div className="content">
-        <h1>Exercise Tutorials</h1>
         <div className="search-container">
           <input
             type="text"
             placeholder="Search exercises..."
             value={searchQuery}
             onChange={handleSearch}
+            className="search-input"
           />
         </div>
+        {loading && <div>Loading...</div>}
+        {error && <div className="error">{error}</div>}
         <div>
           <h3>Available Exercises</h3>
           <ul>
             {searchResults.map((exercise, index) => (
-              <li key={exercise.id || index} onClick={() => selectExercise(exercise.id)}>
+              <li key={exercise.id || index} onClick={() => selectExercise(exercise.id)} className="list-item">
                 {exercise.name}
               </li>
             ))}
