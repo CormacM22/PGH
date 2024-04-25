@@ -5,9 +5,8 @@ import "./LogInOptions.css";
 const LogInOptions = () => {
   return (
     <div>
-      {/* Header added similar to the home page */}
       <div className="header">
-        <div className="header-left"></div> {/* Space for future content or left alignment */}
+        <div className="header-left"></div> 
         <h1 className="site-title">Pro Guidance Hub</h1>
         <div className="header-right">
           <Link to="/home" className="menu-link header-link">Home</Link> {/* Direct link to Home in the header */}

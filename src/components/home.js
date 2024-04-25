@@ -13,16 +13,6 @@ const Home = () => {
       description: 'Access a variety of instructional videos and guidelines to perfect your technique and enhance your fitness regimen.',
       icon: 'fas fa-dumbbell fa-3x' // Font Awesome icon class for visuals
     },
-    'log-workout': {
-      title: 'Log Workout',
-      description: 'Track your workouts easily, logging exercises, durations, and intensities to monitor your progress over time.',
-      icon: 'fas fa-running fa-3x'
-    },
-    'log-calories': {
-      title: 'Log Calories',
-      description: 'Maintain a daily dietary log to manage and track your caloric intake for balanced nutrition.',
-      icon: 'fas fa-utensils fa-3x'
-    },
     'message-coach': {
       title: 'Message Your Coach',
       description: 'Directly communicate with your fitness coach to get personalized advice and answers to your queries.',

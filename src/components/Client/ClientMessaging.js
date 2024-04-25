@@ -46,10 +46,10 @@ const ClientMessaging = () => {
     return (
         <div className="home-container">
             <div className="header">
-                <div className="header-left"></div> // Optional space for future content
-                <h1 className="site-title">Pro Guidance Hub</h1> // Site title displayed in header
+                <div className="header-left"></div> 
+                <h1 className="site-title">Pro Guidance Hub</h1> 
                 <div className="header-right">
-                    <Link to="/clienthome" className="menu-link">Home</Link> // Link to navigate back to the home page
+                    <Link to="/clienthome" className="menu-link">Home</Link> 
                 </div>
             </div>
             <div className="messaging-container">
@@ -69,7 +69,7 @@ const ClientMessaging = () => {
                         placeholder="Type your message here..."
                         className="message-input"
                     />
-                    <button type="submit" className="send-button">Send</button> // Button to submit the form and send the message
+                    <button type="submit" className="send-button">Send</button> 
                 </form>
             </div>
         </div>

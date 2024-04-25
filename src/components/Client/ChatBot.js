@@ -53,10 +53,10 @@ const ChatBot = () => {
   return (
     <div className="home-container">
       <div className="header">
-        <div className="header-left"></div> // Placeholder for future content
-        <h1 className="site-title">Pro Guidance Hub</h1> // Site title in header
+        <div className="header-left"></div> 
+        <h1 className="site-title">Pro Guidance Hub</h1> 
         <div className="header-right">
-          <Link to="/clienthome" className="menu-link">Home</Link> // Navigation link to Home
+          <Link to="/clienthome" className="menu-link">Home</Link> 
         </div>
       </div>
       <div className="chat-container">
@@ -65,7 +65,7 @@ const ChatBot = () => {
           {conversations.map(convo => (
             <div key={convo.id} className={`message ${convo.response ? 'bot-message' : 'user-message'}`}>
               <p>{convo.prompt}</p>
-              {convo.response && <p>{convo.response}</p>} // Show response if available
+              {convo.response && <p>{convo.response}</p>} 
             </div>
           ))}
         </div>
@@ -77,7 +77,7 @@ const ChatBot = () => {
             placeholder="Type your message here..."
             className="message-input"
           />
-          <button type="submit" className="send-button">Send</button> // Send button for the form
+          <button type="submit" className="send-button">Send</button> 
         </form>
       </div>
     </div>
